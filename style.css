@@ -147,7 +147,7 @@ img:hover {
 }
 
 /* Sticker Styles */
-.sticker {
+.gif {
   width: 150px;
   height: auto;
   position: absolute;
@@ -158,7 +158,7 @@ img:hover {
   transition: transform 0.3s, filter 0.3s;
 }
 
-.sticker:hover {
+.gif:hover {
   transform: scale(1.2) rotate(10deg);
   filter: brightness(1.5) drop-shadow(0 0 10px #ff6a00);
 }
