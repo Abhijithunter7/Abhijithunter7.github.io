@@ -1,44 +1,68 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f4f4f9;
-  color: #333;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #e0e0e0;
+  overflow-x: hidden;
 }
 
 header {
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
   color: #fff;
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
   position: relative;
   animation: fadeIn 2s ease-in-out;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 80%);
+  transform: translateX(-50%);
+  animation: spin 10s linear infinite;
+  pointer-events: none;
 }
 
 header h1 {
   margin: 0;
-  font-size: 3rem;
-  animation: bounce 1.5s infinite;
+  font-size: 4rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  animation: bounce 2s infinite;
 }
 
 header p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 section {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
   animation: slideUp 1.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
-h2 {
-  color: #2575fc;
-  border-bottom: 2px solid #6a11cb;
+section h2 {
+  color: #ff6a00;
+  border-bottom: 2px solid #ee0979;
   padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 ul {
@@ -48,24 +72,34 @@ ul {
 
 ul li {
   margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+  color: #f0f0f0;
+}
+
+ul li::before {
+  content: '\25B8';
+  color: #ff6a00;
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
 }
 
 a {
-  color: #2575fc;
+  color: #08fdd8;
   text-decoration: none;
   position: relative;
 }
 
 a:hover {
-  color: #6a11cb;
-  text-decoration: none;
+  color: #00f5a0;
 }
 
 a::after {
   content: '';
   display: block;
   height: 2px;
-  background: #2575fc;
+  background: #08fdd8;
   width: 0;
   transition: width 0.3s;
   position: absolute;
@@ -78,16 +112,41 @@ a:hover::after {
 }
 
 footer {
-  background: #6a11cb;
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
   color: #fff;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   margin-top: 2rem;
   position: relative;
   animation: fadeIn 2s ease-in-out;
 }
 
-/* Cool Animations */
+/* Interactive Animations */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  animation: pulse 2s infinite;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 10px;
+  transition: transform 0.5s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+/* Keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -113,9 +172,27 @@ footer {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
   60% {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
   }
 }
